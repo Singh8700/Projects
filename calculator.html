@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=decive-width, initial-scale=1.0" />
+  <meta name="author" content="Rohit@8700">
+  <meta name="keywords" content="Simple Calculator next level Ui, Calculator Make in html,css & js, HTML,CSS,JS, 3D calculator">
+  <meta name="description" content="simple way to calculate your data">
+    <title>calculator</title>
+    <link rel="stylesheet" href="calStyle.css" type="text/css" media="all" />
+  </head>
+  <body>
+    <div class="container flex flex-col">
+      <form>
+      <div class="input">
+        <input type="text" name="display" disabled id="result"/>
+      </div>
+      <!--calculator first row -->
+      <div class="buttons flex">
+        <input type="button" value="Ac" onclick="display.value = `` "/>
+        <input type="button" value="Del"
+        onclick="display.value=  display.value.toString().slice(0,-1)">
+        <input type="button" value="/" onclick="display.value += '/' ">
+        <input type="button" value="%" onclick="display.value += '%' ">
+      </div>
+    <!--calculator second row -->
+      <div class="buttons flex">
+        <input type="button" value="7" onclick="display.value += `7` "/>
+        <input type="button" value="8"
+        onclick="display.value += '8' ">
+        <input type="button" value="9" onclick="display.value += '9' ">
+        <input type="button" value="-" onclick="display.value += '-' ">
+      </div>
+     <!--calculator third row -->
+      <div class="buttons flex">
+        <input type="button" value="4" onclick="display.value += `4` "/>
+        <input type="button" value="5"
+        onclick="display.value += '5' ">
+        <input type="button" value="6" onclick="display.value += '6' ">
+        <input type="button" value="*" onclick="display.value += '*' ">
+      </div>
+    <!--calculator fourth row -->
+      <div class="buttons flex">
+        <input type="button" value="1" onclick="display.value += `1` "/>
+        <input type="button" value="2"
+        onclick="display.value += '2' ">
+        <input type="button" value="3" onclick="display.value += '3' ">
+        <input type="button" value="+" onclick="display.value += '+' ">
+      </div>
+    <!--calculator fivth row -->
+      <div class="buttons flex">
+        <input type="button" value="00" onclick="display.value += `00` "/>
+        <input type="button" value="0"
+        onclick="display.value += '0' ">
+        <input type="button" value="." onclick="display.value += '.' ">
+        <input type="button" value="=" onclick="display.value =
+        eval(display.value) ">
+      </div>
+      </form>
+      
+      <a href="index.html">
+        <input id="Pervious" type="button" value="Pervious UI"/>
+      </a>
+    </div>
+   <script type="text/javascript" charset="utf-8">
+   let res=document.getElementById("result")
+   let btn = document.querySelectorAll("input")
+   if(res.toString().slice(0) == "*"){
+       console.log("work")
+     }
+   btn.forEach(item=>{
+     
+     item.addEventListener("click",()=>{
+     
+     })
+   })
+   </script>
+  </body>
+</html>

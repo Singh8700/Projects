@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=decive-width, initial-scale=1.0" />
+  <meta name="author" content="Rohit@8700">
+  <meta name="keywords" content="Simple Calculator Ui, Calculator Make in html,css & js, HTML,CSS,JS">
+  <meta name="description" content="simple way to calculate your data">
+    <title>function</title>
+    <style type="text/css" media="all">
+      *{
+        margin:0;
+        padding: 0;
+        box-sizing: border-box;
+        text-align: center;
+        transition:0.5s;
+        font-family: Georgia;
+        text-decoration: none;
+      }
+      #result{
+        margin:2rem auto;
+      }
+      .container{
+        width:80%;
+        margin:2rem auto;
+        border-radius: 2rem;
+        box-shadow: 2px 2px 4px gray,inset 2px 2px 4px gray;
+        padding:3rem 0.5rem;
+        border:0.2px solid gray;
+        display: flex;
+        justify-content: space-around;
+        align-self: center;
+        flex-wrap: wrap;
+      }
+      a input{
+        text-align: center;
+        font-weight: bold;
+      }
+      .container .titles{
+        width:100%;
+        text-shadow: 1px 1px 2px gray;
+        flex-direction: column;
+      }
+     .container input{
+       width:280px;
+       height:40px;
+       margin:1rem auto;
+       text-align: left;
+       padding-left: 1.5rem;
+       border-radius: 0.5rem;
+       transition: 0.5s;
+     }
+     .container input:focus,.container button:hover{
+        box-shadow: 2px 2px 4px gray,inset 2px 2px 4px gray;
+        font-weight: bold;
+     }
+     .container button{
+       flex-direction: column;
+       padding: 0.4rem 0.8rem;
+       word-break: all;
+       margin: 2rem auto;
+       padding:0.5rem;
+       text-align: center;
+       transition:0.5s;
+     }
+     #result{
+       width:100%;
+       padding: 10%;
+       display: flex;
+       justify-content: space-around;
+       align-self: center;
+       flex-wrap: wrap-reverse;
+     }
+      .alert{
+        color:red;
+      }
+      .data{
+        width:300px;
+        height:12vh;
+        word-break: all;
+        margin:auto;
+        border-radius: 2rem;
+        box-shadow: 2px 2px 4px gray,inset 2px 2px 4px gray;
+        padding: 2.5rem 1rem;
+        text-align: center;
+        border:0.2px solid gray;
+        display: flex;
+        justify-content: space-around;
+        align-self: center;
+        flex-direction: column;
+        overflow: hidden;
+        
+      }
+      .title{
+        color:#0ac;
+        font-size: 2rem;
+        text-align: center;
+      }
+      #dt{
+        margin: 2rem auto;
+      }
+      .result{
+        color:green;
+        font-size: 1.2rem;
+        text-align: center;
+        word-break: all;
+      }
+      @media(max-width:780px){
+          .data{
+            width:100%;
+          }
+        .title{
+        
+        font-size: 1.5rem;
+        
+      }
+      .result{
+        
+        font-size: 0.8rem;
+        
+      }
+      }
+    </style>
+  </head>
+  <body>
+
+   <div class="container">
+     
+     <div class="title titles">
+            <a href="calculator.html">
+     <input type="submit" value="Next Level Calculator">
+     </a>
+     <h1>Calculator FirstUI</h1>
+     </div>
+
+     <div>
+      
+     <input type="number" name="firstNumber" id="firstNumber" required placeholder="Enter 1st No"/>
+     <input type="number" name="secondNumber" id="secondNumber" required placeholder="Enter 2nd No"/>
+     </div>
+     <div>
+     <button value="Addition">Addition</button>
+     <button value="Subtract">Subtract</button>
+    <button value="Multiply">Multiply</button>
+    <button value="Division">Division</button>
+    <button value="Remaining">Remaining</button>
+    <button value="Cleaning" type="reset">Clear</button>
+ 
+  </div>
+
+   </div>
+
+   <div id="result">
+     
+   </div>
+   <script type="text/javascript" charset="utf-8">
+     const firstNumber = document.getElementById("firstNumber")
+     const secondNumber =document.getElementById("secondNumber")
+    const results= document.getElementById("result")
+    const btnName = document.querySelectorAll("button")
+   
+    btnName.forEach((item)=>{
+        
+      item.addEventListener("click",(item)=>{
+      if(item.target.value === "Cleaning"){
+       results.innerHTML = `<h2 class="alert">Cleaning...</h2>` 
+       setTimeout(()=>{
+        return location.reload()
+         },2000)
+       
+      }else if(firstNumber.value === "" || secondNumber.value === ""){
+         return results.innerHTML = `<h2 class="alert"> Please fill all fields </h2>`
+       }else{
+        // alert("not work")
+       const load = true
+        let syb =" "
+        let res = " "
+        switch(item.target.value){
+        case "Addition":
+           syb= "+"
+           res = Number(firstNumber.value) + Number(secondNumber.value)
+           break
+        case "Subtract":
+           syb= "-"
+          res = Number(firstNumber.value) - Number(secondNumber.value)
+          break
+        case "Multiply":
+           syb= "*"
+          res = Number(firstNumber.value) * Number(secondNumber.value)
+          break
+        case "Division":
+           syb= "/"
+          res = Number(firstNumber.value) / Number(secondNumber.value)
+          break
+        case "Remaining":
+           syb= "%"
+          res = Number(firstNumber.value) % Number(secondNumber.value)
+        default:
+          
+         // location.reload()
+     }
+      
+   /* results.innerHTML= `
+    <div class="data">
+    <h3 class="title"> ${item.target.value} is </h3>
+   <h2 class="result"> ${firstNumber.value} ${syb} ${secondNumber.value} = ${res}</h2>
+    </div>
+    `*/
+    
+    if(load){
+      let datas= `
+    <div class="data">
+    <h3 class="title"> ${item.target.value} </h3>
+   <h2 class="result"> ${firstNumber.value} ${syb} ${secondNumber.value} = ${res}</h2>
+    </div>
+    `
+
+    const Wrapper= document.createElement("div")
+    Wrapper.id ="dt"
+      Wrapper.innerHTML = datas
+
+      results.appendChild(Wrapper)
+ 
+      }
+      
+     }
+      })
+     // localStorage.clear()
+     
+    
+    })
+   //let datas = results
+   
+   </script>
+  </body>
+</html>
